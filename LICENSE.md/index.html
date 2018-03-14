@@ -1,66 +1,56 @@
-<script>
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
-  }
-}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, user-scalable=0"/>
+        <title>Space Invaders</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <!--
+		<script src="https://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+		-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/parse/1.2.7/parse.min.js"></script>
+    </head>
+    <body>
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
-
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+        <div class="wrapper">
+            <canvas id="spaceinvaders" width="540" height="580"></canvas>
         </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
 
-class Game extends React.Component {
-  render() {
-    return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
+        <section class="buttons"></section>
+
+        <div class="hidden">
+            <img src="img/invaders3.png" id="invaders" width="211" height="29"/>
+            <img src="img/kaboom.png" id="kaboom" width="34" height="23"/>
+            <img src="img/sound.png" id="sound-icon"/>
+
+            <audio src="audio/7.wav" id="missile"></audio>
+            <audio src="audio/5.wav" id="flight"></audio>
+            <audio src="audio/explodemini.wav" id="explosion"></audio>
+            <audio src="audio/8bit_bomb_explosion.wav" id="8bit-explosion"></audio>
         </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-      </div>
-    );
-  }
-}
 
-// ========================================
+        <section class="credits">
+            <h2>Credits</h2>
+            <p>Space Invaders Spritesheet & Logo: <a href="http://gooperblooper22.deviantart.com">GooperBlooper22</a>
+                <br/>
+                Player Ship Spritesheet: <a href="http://www.atomicrobotdesign.com">Mike Thomas</a>
+                <br/>
+                Ship/Wall/Bonus Invader Explosion Sound: <a href="http://cubeengine.com/forum.php4?action=display_thread&thread_id=2164">Michel Baradari</a>
+                <br/>
+                Missile & Bonus Invader Sounds: <a href="http://www.dravenxgames.com">Dravenx</a>
+                <br/>
+                Wallpaper: <a href="http://thelowfive.deviantart.com/art/Space-Invaders-Wallpaper-189560642">thelowfive</a>
+                <br/>
+                Game: <a href="http://www.github.com/kennyhei/Space-Invaders">Kenny Heinonen</a>
+            </p>
+        </section>
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+        <script src="javascript/libs/jquery-1.8.2.min.js"></script>
+        <script src="javascript/libs/jquery.cookie.js"></script>
+        <script src="javascript/libs/jquery.touchSwipe.min.js"></script>
+        <script src="javascript/libs/detectmobilebrowser.js"></script>
 
-</script>
+        <script src="javascript/game-min.js"></script>
+    </body>
+</html>
