@@ -1,11 +1,17 @@
 <!doctype html>
 <html lang="en">
-      <script src="https://unpkg.com/react/umd/react.development.js"></script>
-      <script src="//unpkg.com/react-dom/umd/react-dom.development.js"></script>
+      <script src="https:////fb.me/react-0.13.3.js"></script>
       <script>
-         ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
+class App extends React.Component {
+  
+  render() {
+    return (
+      <div>Hello React..!</div>
+    );
+  }
+  
+}
+
+React.render(<App />, document.getElementById('app'));
       </script>
 </html>
