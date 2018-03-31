@@ -1,50 +1,55 @@
+$bgcolor: #4b4a49;
+$activeclr: #36cfc3;
+$lineclr: #b95951;
+$wdth: 300;
+$hght: 150;
+$linewdth: 5;
+
+@function px2rem($px) {
+  @return #{$px/16}rem;
+}
+
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+    background-color: $bgcolor;
 }
 
-ol, ul {
-  padding-left: 30px;
+.SlideBtn {
+    box-sizing: border-box;
+    border-radius: px2rem($hght / 2);
+    border: solid px2rem($linewdth);
+    background-color: darken($bgcolor, 10%);
+    color: $lineclr;
+    display: block;
+    height: px2rem($hght);
+    position: relative;
+    width: px2rem($wdth);
+    transition: color .3s;
+    margin: 10em auto;
+    
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 20px;
+    }
+    
+    &.is-active {
+        color: $activeclr;
+    }
 }
 
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-}
-
-.square:focus {
-  outline: none;
-}
-
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
+.SlideBtn-knob {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    height: px2rem($hght - 4 * $linewdth);
+    width: px2rem($hght - 4 * $linewdth);
+    background: linear-gradient(180deg, $bgcolor, darken($bgcolor, 10%));
+    top: px2rem($linewdth);
+    left: px2rem($linewdth);
+    border: solid px2rem($linewdth);
+    border-radius: px2rem(($hght - (2 * $linewdth)) / 2);
+    transition: left .3s;
+    
+    .is-active > & {
+        left: px2rem($wdth / 2 + $linewdth);
+    }
 }
